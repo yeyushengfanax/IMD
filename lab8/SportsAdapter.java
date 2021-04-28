@@ -16,8 +16,12 @@
 
 package com.example.android.materialme;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -135,6 +139,7 @@ class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.ViewHolder>  {
          *
          * @param view View that is clicked.
          */
+        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         @Override
         public void onClick(View view) {
             Sport currentSport = mSportsData.get(getAdapterPosition());
@@ -142,7 +147,12 @@ class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.ViewHolder>  {
             detailIntent.putExtra("title", currentSport.getTitle());
             detailIntent.putExtra("image_resource",
                     currentSport.getImageResource());
-            mContext.startActivity(detailIntent);
+            ActivityOptions options = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                options = ActivityOptions.makeSceneTransitionAnimation(
+                        (Activity) mContext, mSportsImage, "share");
+            }
+            mContext.startActivity(detailIntent, options.toBundle());
         }
 
 
