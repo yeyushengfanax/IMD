@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewAnimeActivity">
+
+    <EditText
+        android:id="@+id/anime_name_text"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/anime_name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/anime_info_text"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/anime_info"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/anime_name_text"
+        app:layout_constraintStart_toStartOf="@+id/anime_name_text"
+        app:layout_constraintTop_toBottomOf="@+id/anime_name_text" />
+
+    <ImageView
+        android:id="@+id/anime_image"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/anime_info_text"
+        app:layout_constraintStart_toStartOf="@+id/anime_info_text"
+        app:layout_constraintTop_toBottomOf="@+id/anime_info_text"
+        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+
+    <Button
+        android:id="@+id/select_image_button"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:onClick="selectImage"
+        android:text="@string/select_image"
+        app:layout_constraintEnd_toEndOf="@+id/anime_image"
+        app:layout_constraintStart_toStartOf="@+id/anime_image"
+        app:layout_constraintTop_toBottomOf="@+id/anime_image" />
+
+    <Button
+        android:id="@+id/add_anime_button"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:onClick="addAmime"
+        android:text="@string/add_anime"
+        app:layout_constraintEnd_toEndOf="@+id/select_image_button"
+        app:layout_constraintStart_toStartOf="@+id/select_image_button"
+        app:layout_constraintTop_toBottomOf="@+id/select_image_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>
